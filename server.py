@@ -114,7 +114,8 @@ api_router = APIRouter(prefix="/api")
 @api_router.get("/")
 async def root():
     return {"message": "ZemDev API running"}
-
+    
+app.include_router(api_router)
 # ----- Auth routes -----
 @api_router.post("/auth/login")
 async def login(payload: LoginRequest, response: Response):
